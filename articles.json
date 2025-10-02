@@ -1,0 +1,60 @@
+[
+  {"id":1,"titre":"Montre Connectée","description":"Suivi d'activité et notifications intelligentes.","prix":79,"image":"https://picsum.photos/640/360?random=1","categorie":"Technologie","stock":10},
+  {"id":2,"titre":"Écouteurs Sans Fil","description":"Qualité sonore haute fidélité et autonomie longue.","prix":59,"image":"https://picsum.photos/640/360?random=2","categorie":"Technologie","stock":15},
+  {"id":3,"titre":"Smartphone Ultra","description":"Écran OLED et appareil photo haute résolution.","prix":699,"image":"https://picsum.photos/640/360?random=3","categorie":"Technologie","stock":8},
+  {"id":4,"titre":"Tablette Pro","description":"Écran 12 pouces et stylet inclus.","prix":499,"image":"https://picsum.photos/640/360?random=4","categorie":"Technologie","stock":12},
+  {"id":5,"titre":"Laptop Gamer","description":"Carte graphique puissante et processeur rapide.","prix":1199,"image":"https://picsum.photos/640/360?random=5","categorie":"Technologie","stock":7},
+  {"id":6,"titre":"Casque VR","description":"Expérience immersive avec suivi précis.","prix":399,"image":"https://picsum.photos/640/360?random=6","categorie":"Technologie","stock":5},
+  {"id":7,"titre":"Chargeur Sans Fil","description":"Compatible tous smartphones modernes.","prix":29,"image":"https://picsum.photos/640/360?random=7","categorie":"Technologie","stock":25},
+  {"id":8,"titre":"Enceinte Bluetooth","description":"Son stéréo puissant et autonomie 12h.","prix":89,"image":"https://picsum.photos/640/360?random=8","categorie":"Technologie","stock":18},
+  {"id":9,"titre":"Caméra de Sécurité","description":"Vision nocturne et détection de mouvement.","prix":129,"image":"https://picsum.photos/640/360?random=9","categorie":"Technologie","stock":10},
+  {"id":10,"titre":"Drone HD","description":"Vidéo 4K avec stabilisation avancée.","prix":499,"image":"https://picsum.photos/640/360?random=10","categorie":"Technologie","stock":6},
+
+  {"id":11,"titre":"Crème Hydratante","description":"Peau douce et nourrie toute la journée.","prix":25,"image":"https://picsum.photos/640/360?random=11","categorie":"Esthétique","stock":20},
+  {"id":12,"titre":"Rouge à Lèvres","description":"Couleur intense et tenue longue durée.","prix":15,"image":"https://picsum.photos/640/360?random=12","categorie":"Esthétique","stock":35},
+  {"id":13,"titre":"Sérum Anti-Âge","description":"Réduit les rides et lisse la peau.","prix":45,"image":"https://picsum.photos/640/360?random=13","categorie":"Esthétique","stock":10},
+  {"id":14,"titre":"Palette de Maquillage","description":"Couleurs variées pour tous les styles.","prix":35,"image":"https://picsum.photos/640/360?random=14","categorie":"Esthétique","stock":18},
+  {"id":15,"titre":"Vernis à Ongles","description":"Fini brillant et longue tenue.","prix":10,"image":"https://picsum.photos/640/360?random=15","categorie":"Esthétique","stock":50},
+  {"id":16,"titre":"Mascara Volume","description":"Cils plus épais et allongés.","prix":18,"image":"https://picsum.photos/640/360?random=16","categorie":"Esthétique","stock":40},
+  {"id":17,"titre":"Nettoyant Visage","description":"Peau propre et rafraîchie.","prix":20,"image":"https://picsum.photos/640/360?random=17","categorie":"Esthétique","stock":25},
+  {"id":18,"titre":"Huile Essentielle","description":"Relaxante et parfum agréable.","prix":12,"image":"https://picsum.photos/640/360?random=18","categorie":"Esthétique","stock":30},
+  {"id":19,"titre":"Crème Solaire","description":"Protection SPF50 et texture légère.","prix":22,"image":"https://picsum.photos/640/360?random=19","categorie":"Esthétique","stock":15},
+  {"id":20,"titre":"Baume à Lèvres","description":"Hydrate et protège contre le froid.","prix":8,"image":"https://picsum.photos/640/360?random=20","categorie":"Esthétique","stock":45},
+
+  {"id":21,"titre":"T-shirt Graphique","description":"T-shirt 100% coton avec motif unique.","prix":25,"image":"https://picsum.photos/640/360?random=21","categorie":"Vêtements","stock":20},
+  {"id":22,"titre":"Jeans Slim","description":"Coupe ajustée et confortable.","prix":49,"image":"https://picsum.photos/640/360?random=22","categorie":"Vêtements","stock":30},
+  {"id":23,"titre":"Sweat à Capuche","description":"Doux et chaud pour toutes les saisons.","prix":39,"image":"https://picsum.photos/640/360?random=23","categorie":"Vêtements","stock":25},
+  {"id":24,"titre":"Veste en Cuir","description":"Style élégant et résistante.","prix":120,"image":"https://picsum.photos/640/360?random=24","categorie":"Vêtements","stock":10},
+  {"id":25,"titre":"Robe Été","description":"Légère et confortable pour la saison chaude.","prix":60,"image":"https://picsum.photos/640/360?random=25","categorie":"Vêtements","stock":15},
+  {"id":26,"titre":"Chaussures de Sport","description":"Confortables et légères.","prix":65,"image":"https://picsum.photos/640/360?random=26","categorie":"Vêtements","stock":18},
+  {"id":27,"titre":"Pull Col Rond","description":"Tricot doux et agréable à porter.","prix":35,"image":"https://picsum.photos/640/360?random=27","categorie":"Vêtements","stock":22},
+  {"id":28,"titre":"Chapeau Panama","description":"Élégant et léger pour l'été.","prix":30,"image":"https://picsum.photos/640/360?random=28","categorie":"Vêtements","stock":12},
+  {"id":29,"titre":"Short Casual","description":"Confortable pour les activités quotidiennes.","prix":28,"image":"https://picsum.photos/640/360?random=29","categorie":"Vêtements","stock":20},
+  {"id":30,"titre":"Chemise Classique","description":"Polyvalente et élégante.","prix":40,"image":"https://picsum.photos/640/360?random=30","categorie":"Vêtements","stock":25},
+
+  {"id":31,"titre":"Montre Connectée 31","description":"Suivi d'activité et notifications intelligentes.","prix":79,"image":"https://picsum.photos/seed/tech31/640/360","categorie":"Technologie","stock":10},
+  {"id":32,"titre":"Écouteurs Sans Fil 32","description":"Qualité sonore haute fidélité et autonomie longue.","prix":59,"image":"https://picsum.photos/seed/tech32/640/360","categorie":"Technologie","stock":15},
+  {"id":33,"titre":"Laptop Gamer 33","description":"Carte graphique puissante et processeur rapide.","prix":1199,"image":"https://picsum.photos/seed/tech33/640/360","categorie":"Technologie","stock":7},
+  {"id":34,"titre":"Smartphone Ultra 34","description":"Écran OLED et appareil photo haute résolution.","prix":699,"image":"https://picsum.photos/seed/tech34/640/360","categorie":"Technologie","stock":12},
+  {"id":35,"titre":"Tablette Pro 35","description":"Écran 12 pouces et stylet inclus.","prix":499,"image":"https://picsum.photos/seed/tech35/640/360","categorie":"Technologie","stock":8},
+  {"id":36,"titre":"Casque VR 36","description":"Expérience immersive avec suivi précis.","prix":399,"image":"https://picsum.photos/seed/tech36/640/360","categorie":"Technologie","stock":5},
+  {"id":37,"titre":"Chargeur Sans Fil 37","description":"Compatible tous smartphones modernes.","prix":29,"image":"https://picsum.photos/seed/tech37/640/360","categorie":"Technologie","stock":25},
+  {"id":38,"titre":"Enceinte Bluetooth 38","description":"Son stéréo puissant et autonomie 12h.","prix":89,"image":"https://picsum.photos/seed/tech38/640/360","categorie":"Technologie","stock":18},
+  {"id":39,"titre":"Caméra de Sécurité 39","description":"Vision nocturne et détection de mouvement.","prix":129,"image":"https://picsum.photos/seed/tech39/640/360","categorie":"Technologie","stock":10},
+  {"id":40,"titre":"Drone HD 40","description":"Vidéo 4K avec stabilisation avancée.","prix":499,"image":"https://picsum.photos/seed/tech40/640/360","categorie":"Technologie","stock":6},
+  {"id":41,"titre":"Montre Connectée 41","description":"Suivi d'activité et notifications intelligentes.","prix":79,"image":"https://picsum.photos/seed/tech41/640/360","categorie":"Technologie","stock":10},
+  {"id":42,"titre":"Écouteurs Sans Fil 42","description":"Qualité sonore haute fidélité et autonomie longue.","prix":59,"image":"https://picsum.photos/seed/tech42/640/360","categorie":"Technologie","stock":15},
+  {"id":43,"titre":"Laptop Gamer 43","description":"Carte graphique puissante et processeur rapide.","prix":1199,"image":"https://picsum.photos/seed/tech43/640/360","categorie":"Technologie","stock":7},
+  {"id":44,"titre":"Smartphone Ultra 44","description":"Écran OLED et appareil photo haute résolution.","prix":699,"image":"https://picsum.photos/seed/tech44/640/360","categorie":"Technologie","stock":12},
+  {"id":45,"titre":"Tablette Pro 45","description":"Écran 12 pouces et stylet inclus.","prix":499,"image":"https://picsum.photos/seed/tech45/640/360","categorie":"Technologie","stock":8},
+  {"id":46,"titre":"Casque VR 46","description":"Expérience immersive avec suivi précis.","prix":399,"image":"https://picsum.photos/seed/tech46/640/360","categorie":"Technologie","stock":5},
+  {"id":47,"titre":"Chargeur Sans Fil 47","description":"Compatible tous smartphones modernes.","prix":29,"image":"https://picsum.photos/seed/tech47/640/360","categorie":"Technologie","stock":25},
+  {"id":48,"titre":"Enceinte Bluetooth 48","description":"Son stéréo puissant et autonomie 12h.","prix":89,"image":"https://picsum.photos/seed/tech48/640/360","categorie":"Technologie","stock":18},
+  {"id":49,"titre":"Caméra de Sécurité 49","description":"Vision nocturne et détection de mouvement.","prix":129,"image":"https://picsum.photos/seed/tech49/640/360","categorie":"Technologie","stock":10},
+  {"id":50,"titre":"Drone HD 50","description":"Vidéo 4K avec stabilisation avancée.","prix":499,"image":"https://picsum.photos/seed/tech50/640/360","categorie":"Technologie","stock":6}
+
+]
+
+
+ 
+  

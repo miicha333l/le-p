@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu coco tu néné</title>
+    <meta name="description"
+        content="Découvrez nos articles exclusifs et passez commande directement via WhatsApp ou Snapchat">
+    <link rel="icon" type="image/x-icon" href="https://static.photos/minimal/200x200/42">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-b from-purple-50 via-white to-purple-100 min-h-screen font-sans px-4 md:px-8">
+
+    <!-- HEADER -->
+    <header class="py-8 px-4 text-center bg-white rounded-b-3xl shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <img src="https://static.photos/minimal/200x200/42" alt="Logo"
+                class="w-24 h-24 mx-auto rounded-full object-cover border-4 border-white shadow-md">
+            <h1 class="text-3xl md:text-4xl font-bold mt-6 text-gray-800">Tu coco tu néné</h1>
+            <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Découvrez notre collection exclusive</p>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-6xl mx-auto py-12">
+        <!-- Boutons de filtre -->
+        <div class="flex gap-4 flex-wrap justify-center mb-8">
+            <button
+                class="filter-btn px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-purple-600 hover:text-white"
+                data-categorie="Tous">Tous</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-purple-600 hover:text-white"
+                data-categorie="Technologie">Technologie</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-purple-600 hover:text-white"
+                data-categorie="Esthétique">Esthétique</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-purple-600 hover:text-white"
+                data-categorie="Vêtements">Vêtements</button>
+        </div>
+
+        <!-- Conteneur des cartes -->
+        <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Les cartes seront injectées ici via JS -->
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-8 mt-12 rounded-t-3xl shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors duration-300">
+                    <i data-feather="instagram"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors duration-300">
+                    <i data-feather="facebook"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors duration-300">
+                    <i data-feather="twitter"></i>
+                </a>
+            </div>
+
+            <p class="text-gray-600">© 2025 Tu coco tu néné. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
+
+    <!-- BOUTON FLOTTANT "Paye ton café" -->
+    <a href="https://www.paypal.com/donate?hosted_button_id=TON_ID_PAYPAL" target="_blank"
+        class="fixed bottom-6 right-6 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-4 py-3 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 z-50 animate-bounce">
+        <i data-feather="coffee" class="w-5 h-5"></i>
+        <span class="hidden md:inline">Paye ton café</span>
+    </a>
+
+</body>
+
+</html>
