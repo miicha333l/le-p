@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==================== Fonction d'achat ====================
   function buyProduct(productName, price) {
     const whatsappMessage = `Je souhaite acheter ${productName} (${price}€).`;
-    const whatsappLink = `https://wa.me/33612345678?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/33751235073?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappLink, '_blank');
   }
 
