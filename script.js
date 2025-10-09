@@ -1,114 +1,148 @@
-// ------------------- CONFIGURATION TAILWIND -------------------
 tailwind.config = {
   theme: {
     extend: {
       colors: {
-        primary: '#6D28D9',    // Couleur principale pour boutons et éléments
-        secondary: '#8B5CF6',  // Couleur secondaire pour hover ou accents
+        primary: '#6D28D9',
+        secondary: '#8B5CF6',
       }
     }
-  }
+  },
+  darkMode: 'class' // pour toggle jour/nuit
 };
 
-// ------------------- FONCTION D'ACHAT -------------------
-function buyProduct(productName, price) {
-  // Message formaté pour WhatsApp
-  const whatsappMessage = `Je souhaite acheter ${productName} (${price}€).`;
-  const whatsappLink = `https://wa.me/33612345678?text=${encodeURIComponent(whatsappMessage)}`;
+document.addEventListener("DOMContentLoaded", function () {
 
-  // Choix aléatoire entre WhatsApp et Snapchat (simulation)
-  if (Math.random() > 0.5) {
-    window.open(whatsappLink, '_blank'); // Ouvre WhatsApp
+  // ==================== Toggle Jour/Nuit ====================
+  const themeToggle = document.getElementById('theme-toggle');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    themeToggle.textContent = '☀️';
   } else {
-    alert("Ouverture de Snapchat (simulation). Message: " + whatsappMessage);
-    // Pour Snapchat réel, on pourrait utiliser un deep link si disponible
-    // window.open('snapchat://add/user?text=' + encodeURIComponent(whatsappMessage));
+    themeToggle.textContent = '🌙';
   }
-}
 
-// ------------------- VARIABLES GLOBALES -------------------
-// Pour stocker tous les articles et pouvoir filtrer facilement
-let articlesData = [];
-
-// Conteneur principal des cartes
-const container = document.getElementById("articles-container");
-
-// ------------------- FONCTION D'AFFICHAGE DES PRODUITS -------------------
-function displayProducts(filteredArticles) {
-  container.innerHTML = ""; // Vider le conteneur avant d'ajouter de nouvelles cartes
-
-  filteredArticles.forEach(article => {
-    const div = document.createElement("div"); // Crée la carte
-    div.className = "card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300";
-
-    // Contenu HTML de la carte
-    div.innerHTML = `
-      <div class="card-image overflow-hidden h-48">
-        <img src="${article.image}" alt="${article.titre}" class="w-full h-full object-cover transition-transform duration-300">
-      </div>
-      <div class="p-6">
-        <h3 class="text-xl font-semibold text-gray-800">${article.titre}</h3>
-        <p class="text-gray-600 mt-2">${article.description}</p>
-        <div class="flex justify-between items-center mt-4">
-          <span class="text-lg font-bold text-primary">${article.prix}€</span>
-          <button 
-            onclick="buyProduct('${article.titre}', ${article.prix})" 
-            class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors duration-300"
-          >
-            <i data-feather="message-circle" class="w-5 h-5"></i>
-            <span>WhatsApp</span>
-          </button>
-        </div>
-      </div>
-    `;
-
-    container.appendChild(div); // Ajoute la carte au DOM
+  themeToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if (document.documentElement.classList.contains('dark')) {
+      themeToggle.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      themeToggle.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
   });
 
-  // ------------------- ANIMATION PROGRESSIVE -------------------
-  feather.replace(); // Remplace les <i data-feather> par les icônes Feather
-  const cards = document.querySelectorAll('.card');
-  cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  // ==================== Fonction d'achat ====================
+  function buyProduct(productName, price) {
+    const whatsappMessage = `Je souhaite acheter ${productName} (${price}€).`;
+    const whatsappLink = `https://wa.me/33612345678?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappLink, '_blank');
+  }
+
+  // ==================== Charger les articles ====================
+  let allArticles = [];
+  fetch("articles.json")
+    .then(response => response.json())
+    .then(data => {
+      allArticles = data;
+      displayArticles(data);
+      animateHeader();
+      animateCoffeeButton();
+      initFilters();
+    })
+    .catch(err => console.error("Erreur de chargement :", err));
+
+  // ==================== Affichage des articles ====================
+  function displayArticles(articles) {
+    const container = document.getElementById("articles-container");
+    container.innerHTML = "";
+
+    articles.forEach((article, index) => {
+      const card = document.createElement("div");
+      card.className = "card bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300";
+
+      card.innerHTML = `
+        <div class="h-56 overflow-hidden">
+          <img src="${article.image}" alt="${article.titre}" 
+            class="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">${article.titre}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mt-2">${article.description}</p>
+          <div class="flex justify-between items-center mt-4">
+            <span class="text-lg font-bold text-primary">${article.prix}€</span>
+            <button onclick="buyProduct('${article.titre}', ${article.prix})" 
+              class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg shadow transition-all duration-300 hover:scale-105">
+              <i data-feather="message-circle" class="w-5 h-5"></i>
+              <span>WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      card.style.opacity = "0";
+      card.style.transform = "translateY(30px)";
+      setTimeout(() => {
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      }, 100 * index);
+
+      container.appendChild(card);
+    });
+
+    feather.replace();
+  }
+
+  // ==================== Animation header ====================
+  function animateHeader() {
+    const logo = document.getElementById("site-logo");
+    const title = document.getElementById("site-title");
+    const subtitle = document.getElementById("site-subtitle");
+    const header = document.getElementById("site-header");
 
     setTimeout(() => {
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, 150 * index);
-  });
-}
+      header.classList.remove("opacity-0", "translate-y-6");
+      logo.classList.remove("opacity-0", "scale-75");
+      title.classList.remove("opacity-0", "translate-y-4");
+      subtitle.classList.remove("opacity-0", "translate-y-4");
+    }, 500);
+  }
 
-// ------------------- CHARGEMENT DES ARTICLES -------------------
-fetch("articles.json")
-  .then(response => response.json())
-  .then(data => {
-    articlesData = data;           // Stocke tous les articles pour pouvoir filtrer
-    displayProducts(articlesData); // Affiche tous les articles au chargement
+  // ==================== Bouton Paye ton café ====================
+  function animateCoffeeButton() {
+    const btn = document.getElementById("coffee-btn");
+    setTimeout(() => {
+      btn.classList.remove("opacity-0", "translate-x-20");
+      btn.classList.add("opacity-100", "translate-x-0");
+    }, 1000);
+  }
 
-    // ------------------- GESTION DES BOUTONS DE FILTRE -------------------
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    filterButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const categorie = btn.dataset.categorie;
-        // Supprime la classe active de tous les boutons
-        filterButtons.forEach(b => b.classList.remove("bg-primary", "text-white", "shadow-md"));
-        // Ajoute la classe active au bouton cliqué
-        btn.classList.add("bg-primary", "text-white", "shadow-md");
-        // Filtre les articles selon la catégorie
-        if (categorie === "Tous") {
-          displayProducts(articlesData);
-        } else {
-          const filtered = articlesData.filter(a => a.categorie === categorie);
-          displayProducts(filtered);
-        }
+  // ==================== Filtres ====================
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-categorie');
+        const filtered = cat === "Tous" ? allArticles : allArticles.filter(a => a.categorie === cat);
+        displayArticles(filtered);
+
+        // Style du bouton actif
+        filterBtns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+        btn.classList.add('bg-primary', 'text-white');
       });
     });
-  })
-  .catch(err => console.error("Erreur de chargement :", err)); // Gestion des erreurs
-  
-  window.addEventListener('DOMContentLoaded', () => {
-      // Sélectionne le bouton "Tous" et lui ajoute les classes d'état actif
-      document.querySelector('.filter-btn[data-categorie="Tous"]').classList.add('bg-primary', 'text-white', 'shadow-md');
+  }
+  // ==================== Recherche en temps réel ====================
+  const searchInput = document.getElementById('search-input');
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = allArticles.filter(article =>
+      article.titre.toLowerCase().includes(query) ||
+      article.description.toLowerCase().includes(query)
+    );
+    displayArticles(filtered);
   });
+
+
+}); // FIN DOMContentLoaded
