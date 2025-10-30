@@ -33,11 +33,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==================== Fonction d'achat ====================
-  function buyProduct(productName, price) {
-    const whatsappMessage = `Je souhaite acheter ${productName} (${price}€).`;
-    const whatsappLink = `https://wa.me/33751235073?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappLink, '_blank');
+  window.buyProduct = function(productName, price) {
+  const message = `Je souhaite acheter ${productName} (${price}€).`;
+  const phoneNumber = "33751235073"; // Sans le +, ni espace
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  // Ouvre le lien dans un nouvel onglet
+  const newTab = window.open(whatsappUrl, "_blank");
+
+  if (!newTab) {
+    alert("Veuillez autoriser les popups pour ouvrir WhatsApp !");
   }
+};
+
+
 
   // ==================== Charger les articles ====================
   let allArticles = [];
@@ -71,11 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <p class="text-gray-600 dark:text-gray-300 mt-2">${article.description}</p>
           <div class="flex justify-between items-center mt-4">
             <span class="text-lg font-bold text-primary">${article.prix}€</span>
-            <button onclick="buyProduct('${article.titre}', ${article.prix})" 
-              class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg shadow transition-all duration-300 hover:scale-105">
-              <i data-feather="message-circle" class="w-5 h-5"></i>
-              <span>WhatsApp</span>
-            </button>
+           <button 
+            onclick="buyProduct('${article.titre}', ${article.prix})" 
+            class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors duration-300"
+          >
+            <i data-feather="message-circle" class="w-5 h-5"></i>
+            <span>WhatsApp</span>
+          </button>
+
           </div>
         </div>
       `;
